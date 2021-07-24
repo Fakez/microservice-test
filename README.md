@@ -1,5 +1,11 @@
 # microservice-test
 
+Two microservices, were created, one for 2 factor authentication, and another for mock consulting a MongoDB database. The database stores two models: 
+- user (email, password)
+- great places to work (name, country)
+
+The mock API is used to register an user and retrieve and update great places in the database.
+
 # Production server
 Both mock and auth APIs are already in production. They were containerized via Docker and are running in an Ubuntu instance in AWS EC2.
 
@@ -11,7 +17,7 @@ API Docs are located in http://54.232.242.81:3001/api-docs and http://54.232.242
 
 # Local Server
 
-## Option #1: Docker compose
+## Option #1: Run via Docker compose
 ### Run via docker compose:
 ``` 
 docker-compose up
@@ -47,15 +53,15 @@ Access the mock API via ```http://localhost:3002/```
 2) After registering, get your token using the auth API endpoint: ```/api/auth```. The token will be sent to the users e-mail and has an expiration time of 60 minutes.
 3) After obtaining your token, you can use the following mock API endpoints:
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```GET``` ```/api/greaplaces/```
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```GET``` ```/api/greatplaces/```
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```GET``` ```/api/greaplaces/{id}```
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```GET``` ```/api/greatplaces/{id}```
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```POST``` ```/api/greaplaces/```
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```POST``` ```/api/gretaplaces/```
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```PUT``` ```/api/greaplaces/{id}```
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```PUT``` ```/api/greatplaces/{id}```
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```DELETE``` ```/api/greaplaces/{id}```
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```DELETE``` ```/api/greatplaces/{id}```
   
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For more reference check the API docs located on ```/api-docs``` in both mock and auth APIs.
 
