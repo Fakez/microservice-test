@@ -1,0 +1,36 @@
+services:
+  auth:
+    image: node:latest
+    container_name: auth-container
+    restart: always
+    #env_file: 
+    #- ./auth/.env
+    environment: 
+        - MONGODB_URI=${MONGODB_URI}
+        - AUTH_PORT=${AUTH_PORT}
+        - SECRET=${SECRET}
+        - MAIL_USER=${MAIL_USER}
+        - MAIL_PASS=${MAIL_PASS}
+    ports:
+        - ${AUTH_PORT}:${AUTH_PORT}
+    volumes:
+        - ./auth:/usr/src/auth
+    working_dir: /usr/src/auth
+    command: bash -c "npm install && node index.js"
+
+  mock:
+    image: node:latest
+    container_name: mock-container
+    restart: always
+    #env_file: 
+    #- ./mock/.env
+    environment: 
+         - MONGODB_URI=${MONGODB_URI}
+         - MOCK_PORT=${MOCK_PORT}
+         - SECRET=${SECRET}
+    ports:
+        - ${MOCK_PORT}:${MOCK_PORT}
+    volumes:
+        - ./mock:/usr/src/mock
+    working_dir: /usr/src/mock
+    command: bash -c "npm install && node index.js"
