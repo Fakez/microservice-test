@@ -1,6 +1,6 @@
 # microservice-test
 
-Two microservices, were created, one for 2 factor authentication, and another for mock consulting a MongoDB database. The database stores two models: 
+Two Nodejs microservices were created, one for 2 factor authentication, and another for mock consulting a MongoDB database. The database stores two models: 
 - user (email, password)
 - great places to work (name, country)
 
