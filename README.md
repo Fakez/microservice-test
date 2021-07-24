@@ -4,7 +4,7 @@ Two microservices, were created, one for 2 factor authentication, and another fo
 - user (email, password)
 - great places to work (name, country)
 
-The mock API is used to register an user and retrieve and update great places in the database.
+The mock API is used to register an user and also to retrieve and update great places in the database.
 
 # Production server
 Both mock and auth APIs are already in production. They were containerized via Docker and are running in an Ubuntu instance in AWS EC2.
